@@ -1,0 +1,27 @@
+.chat {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: flex-start;
+}
+
+.users {
+  margin: 0;
+  padding: 10px;
+  border: 1px solid;
+
+  list-style: none;
+}
+
+.messages {
+  margin-left: 5px;
+  width: 100%;
+  padding: 10px;
+
+  border: 1px solid;
+}
+
+.message {
+  padding: 5px;
+
+  border: 1px solid;
+}
