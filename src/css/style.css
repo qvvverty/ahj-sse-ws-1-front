@@ -12,6 +12,10 @@
   list-style: none;
 }
 
+.self-user {
+  color: red;
+}
+
 .messages {
   margin-left: 5px;
   width: 100%;
@@ -24,4 +28,73 @@
   padding: 5px;
 
   border: 1px solid;
+}
+
+.self {
+  text-align: right;
+}
+
+.modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: black;
+  opacity: 0.4;
+}
+
+.login-form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  top: calc(50vh - 75px);
+  left: calc(50vw - 150px);
+
+  width: 300px;
+  height: 150px;
+
+  box-sizing: border-box;
+  padding: 20px;
+
+  background-color: white;
+
+  border: 1px solid;
+  border-radius: 15px;
+}
+
+.name-input {
+  height: 25px;
+  padding: 5px;
+
+  border: 1px solid;
+  border-radius: 15px;
+
+  font-size: 16px;
+  text-align: center;
+}
+
+.login-btn {
+  padding: 10px;
+
+  background-color: white;
+  border: 1px solid;
+  border-radius: 15px;
+
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* login-btn:active {
+  border: 1px solid;
+  color: black;
+} */
+
+.hidden {
+  display: none;
 }

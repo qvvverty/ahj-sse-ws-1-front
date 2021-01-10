@@ -1,24 +1,10 @@
-fetch('http://localhost:7070/', {
-  method: 'POST',
-  body: 'some_user_name',
-  // body: prompt('username'),
-})
-  .then((response) => {
-    if (response.ok) {
-      // console.log('Aaa!');
-      const socket = new WebSocket('ws://localhost:7070/');
-      return socket;
-    }
-  })
-  .then((socket) => {
-    // console.log(res);
-    socket.addEventListener('open', (event) => {
-      // console.log(event);
-      socket.send('something');
-    });
+import Chat from './Chat';
+import Renderer from './Renderer';
+import Control from './Control';
 
-    socket.addEventListener('message', (event) => {
-      // console.log(event.data);
-      console.log(JSON.parse(event.data));
-    });
-  });
+const parentEl = document.querySelector('.chat-container');
+
+const chat = new Chat();
+const renderer = new Renderer(parentEl);
+const control = new Control();
+control.init(parentEl, chat, renderer);
