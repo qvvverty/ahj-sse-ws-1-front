@@ -19,12 +19,17 @@
   color: red;
 }
 
-.messages {
+.messages-container {
   box-sizing: border-box;
   margin-left: 5px;
   width: calc(80% - 5px);
+}
+
+.messages {
+  max-height: 500px;
   padding: 10px;
 
+  overflow: scroll;
   border: 1px solid;
 }
 
@@ -34,14 +39,28 @@
   border: 1px solid;
 }
 
+.msg-sender {
+  font-size: 12px;
+}
+
 .self {
   text-align: right;
 }
 
+.self .msg-sender {
+  color: red;
+}
+
+.service {
+  text-align: center;
+  color: gray;
+}
+
 .msg-form {
   margin-left: auto;
+  margin-right: auto;
   margin-top: 5px;
-  width: calc(80% - 5px);
+  width: 400px;
 }
 
 .msg-input {

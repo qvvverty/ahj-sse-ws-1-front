@@ -16,24 +16,30 @@
         <li class="self-user">Kolya</li>
         <li>Petya</li>
       </ul>
-      <div class="messages">
-        <div class="message">
-          <div class="msg-sender">from 01.01.2021</div>
-          <div class="msg-text">some message</div>
+      <div class="messages-container">
+        <div class="messages">
+          <div class="message">
+            <div class="msg-sender">from 01.01.2021</div>
+            <div class="msg-text">some message</div>
+          </div>
+          <div class="message self">
+            <div class="msg-sender">from 01.01.2021</div>
+            <div class="msg-text">some message</div>
+          </div>
+          <div class="message">
+            <div class="msg-sender">from 01.01.2021</div>
+            <div class="msg-text">some message</div>
+          </div>
+          <div class="message service">
+            <div class="msg-sender">from 01.01.2021</div>
+            <div class="msg-text">some message</div>
+          </div>
         </div>
-        <div class="message self">
-          <div class="msg-sender">from 01.01.2021</div>
-          <div class="msg-text">some message</div>
-        </div>
-        <div class="message">
-          <div class="msg-sender">from 01.01.2021</div>
-          <div class="msg-text">some message</div>
-        </div>
+        <form name="msgForm" class="msg-form">
+          <input type="text" name="message" class="msg-input">
+          <input type="submit" value="send" class="msg-send">
+        </form>
       </div>
-      <form name="msgForm" class="msg-form">
-        <input type="text" name="message" class="msg-input">
-        <input type="submit" value="send" class="msg-send">
-      </form>
     </div>
 
     <div class="modal-background"></div>

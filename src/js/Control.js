@@ -40,19 +40,28 @@ export default class Control {
   }
 
   newMsgHandler(event) {
-    console.log(JSON.parse(event.data));
+    // console.log(JSON.parse(event.data));
     const message = JSON.parse(event.data);
+
     if (message.from === 'server') {
       switch (message.type) {
         case 'user left':
           this.renderer.removeUser(message.message);
           break;
         case 'new user':
-          this.renderer.addUser(message.message);
+          if (message.message !== this.selfUser) {
+            this.renderer.addUser(message.message);
+          }
           break;
         default:
           console.log(`Server message: ${message.message}`);
       }
+
+      this.renderer.renderMessage(message);
+    } else if (message.from === this.selfUser) {
+      this.renderer.renderMessage(message, this.selfUser);
+    } else {
+      this.renderer.renderMessage(message);
     }
   }
 }
