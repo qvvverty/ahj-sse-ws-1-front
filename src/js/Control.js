@@ -5,9 +5,11 @@ export default class Control {
     this.renderer = renderer;
 
     this.loginForm = document.forms.loginForm;
+    this.msgForm = document.forms.msgForm;
     this.modalBackground = parentEl.querySelector('.modal-background');
 
     this.loginForm.addEventListener('submit', this.loginFormHandler.bind(this));
+    this.msgForm.addEventListener('submit', this.msgFormHandler.bind(this));
   }
 
   async loginFormHandler(submit) {
@@ -19,8 +21,37 @@ export default class Control {
         alert('Username exists, try another'); // потом, конечно, сделать по-человечески
       } else if (Array.isArray(response)) {
         this.renderer.renderUsers(response, this.selfUser);
+
+        this.chat.socket.addEventListener('message', this.newMsgHandler.bind(this));
+
         this.loginForm.classList.add('hidden');
         this.modalBackground.classList.add('hidden');
+      }
+    }
+  }
+
+  msgFormHandler(submit) {
+    submit.preventDefault();
+    const message = this.msgForm.message.value;
+    if (message) {
+      this.chat.socket.send(message);
+      this.msgForm.message.value = '';
+    }
+  }
+
+  newMsgHandler(event) {
+    console.log(JSON.parse(event.data));
+    const message = JSON.parse(event.data);
+    if (message.from === 'server') {
+      switch (message.type) {
+        case 'user left':
+          this.renderer.removeUser(message.message);
+          break;
+        case 'new user':
+          this.renderer.addUser(message.message);
+          break;
+        default:
+          console.log(`Server message: ${message.message}`);
       }
     }
   }

@@ -1,10 +1,13 @@
 .chat {
   display: flex;
+  flex-wrap: wrap;
   /* justify-content: space-between; */
   align-items: flex-start;
 }
 
 .users {
+  box-sizing: border-box;
+  width: 20%;
   margin: 0;
   padding: 10px;
   border: 1px solid;
@@ -17,8 +20,9 @@
 }
 
 .messages {
+  box-sizing: border-box;
   margin-left: 5px;
-  width: 100%;
+  width: calc(80% - 5px);
   padding: 10px;
 
   border: 1px solid;
@@ -32,6 +36,35 @@
 
 .self {
   text-align: right;
+}
+
+.msg-form {
+  margin-left: auto;
+  margin-top: 5px;
+  width: calc(80% - 5px);
+}
+
+.msg-input {
+  width: 300px;
+
+  height: 15px;
+  padding: 5px 10px;
+
+  border: 1px solid;
+  border-radius: 15px;
+
+  font-size: 14px;
+}
+
+.msg-send {
+  padding: 4px 6px;
+
+  background-color: white;
+  border: 1px solid;
+  border-radius: 15px;
+
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .modal-background {

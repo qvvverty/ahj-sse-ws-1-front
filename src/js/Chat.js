@@ -7,23 +7,23 @@ export default class Chat {
 
     if (!response.ok) return new Error(response.status);
     this.socket = new WebSocket('ws://localhost:7070/');
-    this.addEventListeners();
+    // this.addEventListeners();
     const chatUsers = await response.json();
     return chatUsers;
   }
 
-  addEventListeners() {
-    this.socket.addEventListener('open', this.onOpen.bind(this)); // проверить, нужен ли bind
-    this.socket.addEventListener('message', this.onMessage.bind(this));
-  }
+  // addEventListeners() {
+  //   this.socket.addEventListener('open', this.onOpen.bind(this));
+  //   this.socket.addEventListener('message', this.onMessage.bind(this));
+  // }
 
-  onOpen(event) {
-    this.socket.send('something');
-  }
+  // onOpen(event) {
+  //   this.socket.send('something');
+  // }
 
-  onMessage(event) {
-    console.log(JSON.parse(event.data));
-  }
+  // onMessage(event) {
+  //   console.log(JSON.parse(event.data));
+  // }
 }
 
 // login(username) {
