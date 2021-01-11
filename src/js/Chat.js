@@ -8,7 +8,7 @@ export default class Chat {
 
     if (!response.ok) return new Error(response.status);
     // this.socket = new WebSocket('ws://localhost:7070/');
-    this.socket = new WebSocket('ws://mysterious-eyrie.herokuapp.com/');
+    this.socket = new WebSocket('wss://mysterious-eyrie.herokuapp.com/');
     // this.addEventListeners();
     const chatUsers = await response.json();
     return chatUsers;
