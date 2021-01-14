@@ -7,8 +7,10 @@ export default class Control {
     this.loginForm = document.forms.loginForm;
     this.msgForm = document.forms.msgForm;
     this.modalBackground = parentEl.querySelector('.modal-background');
+    this.usernameErrEl = parentEl.querySelector('.username-err');
 
     this.loginForm.addEventListener('submit', this.loginFormHandler.bind(this));
+    this.loginForm.username.addEventListener('input', () => this.usernameErrEl.classList.add('hidden'));
     this.msgForm.addEventListener('submit', this.msgFormHandler.bind(this));
   }
 
@@ -18,7 +20,7 @@ export default class Control {
     if (this.selfUser) {
       const response = await this.chat.login(this.loginForm.username.value);
       if (response instanceof Error && response.message === '403') {
-        alert('Username exists, try another'); // потом, конечно, сделать по-человечески
+        this.usernameErrEl.classList.remove('hidden');
       } else if (Array.isArray(response)) {
         this.renderer.renderUsers(response, this.selfUser);
 
@@ -40,7 +42,6 @@ export default class Control {
   }
 
   newMsgHandler(event) {
-    // console.log(JSON.parse(event.data));
     const message = JSON.parse(event.data);
 
     if (message.from === 'server') {

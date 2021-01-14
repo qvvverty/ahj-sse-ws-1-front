@@ -1,7 +1,6 @@
 .chat {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
   align-items: flex-start;
 }
 
@@ -84,18 +83,6 @@
   cursor: pointer;
 }
 
-.modal-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  background-color: black;
-  opacity: 0.4;
-}
-
 .login-form {
   position: absolute;
   display: flex;
@@ -140,10 +127,21 @@
   cursor: pointer;
 }
 
-/* login-btn:active {
-  border: 1px solid;
-  color: black;
-} */
+.username-err {
+  color: red;
+}
+
+.modal-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: black;
+  opacity: 0.4;
+}
 
 .hidden {
   display: none;

@@ -5,35 +5,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>http</title>
+  <title>websocket</title>
 </head>
 
 <body>
   <div class="chat-container">
     <div class="chat">
       <ul class="users">
-        <!-- <li>Masha</li>
-        <li class="self-user">Kolya</li>
-        <li>Petya</li> -->
       </ul>
       <div class="messages-container">
         <div class="messages">
-          <!-- <div class="message">
-            <div class="msg-sender">from 01.01.2021</div>
-            <div class="msg-text">some message</div>
-          </div>
-          <div class="message self">
-            <div class="msg-sender">from 01.01.2021</div>
-            <div class="msg-text">some message</div>
-          </div>
-          <div class="message">
-            <div class="msg-sender">from 01.01.2021</div>
-            <div class="msg-text">some message</div>
-          </div>
-          <div class="message service">
-            <div class="msg-sender">from 01.01.2021</div>
-            <div class="msg-text">some message</div>
-          </div> -->
         </div>
         <form name="msgForm" class="msg-form">
           <input type="text" name="message" class="msg-input">
@@ -46,6 +27,9 @@
     <form name="loginForm" class="login-form">
       <input type="text" name="username" class="name-input">
       <input type="submit" value="Login" class="login-btn">
+      <div class="username-err hidden">
+        Username exists, try another
+      </div>
     </form>
   </div>
 </body>
